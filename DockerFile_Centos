@@ -1,0 +1,16 @@
+
+FROM centos:centos7
+MAINTAINER The CentOS Project <cloud-ops@centos.org>
+
+VOLUME ["/opendxl"]
+
+RUN yum -y install which 
+RUN curl https://raw.githubusercontent.com/amolkokje/python_env_setup/master/centos_setup/centos_setup.sh > centos_env_setup.sh
+RUN chmod 775 centos_env_setup.sh
+RUN ./centos_env_setup.sh
+
+RUN pip install dxlclient
+RUN pip install dxlconsole
+
+
+EXPOSE 8000
