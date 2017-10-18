@@ -1,4 +1,9 @@
 
+# BUILD: docker build -t <image_name> <docker_file_location_folder>
+#      example: docker run build -t a4 C:\docker
+# RUN: docker run -p 8888:8000 -v <local_machine_folder>:/opendxl -t <image_name>
+#      example: docker run -p 8888:8000 -v /c/docker/opendxl:/opendxl -t a4
+
 FROM centos:centos7
 MAINTAINER The CentOS Project <cloud-ops@centos.org>
 
