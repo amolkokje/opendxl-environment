@@ -3,6 +3,7 @@
 #      example: docker run build -t a4 C:\docker
 # RUN: docker run -p 8888:8000 -v <local_machine_folder>:/opendxl -t <image_name>
 #      example: docker run -p 8888:8000 -v /c/docker/opendxl:/opendxl -t a4
+# with this, you are also able write your code in the mounted local drive, and then run it in the docker container
 
 FROM centos:centos7
 MAINTAINER The CentOS Project <cloud-ops@centos.org>
