@@ -1,8 +1,8 @@
 
 # BUILD: docker build -t <image_name> <docker_file_location_folder>
 #      example: docker run build -t a4 C:\docker
-# RUN: docker run -p <localhost_port>:8000 -v <local_machine_folder>:/opendxl -t <image_name>
-#      example: docker run -p 8888:8000 -v /c/docker/opendxl:/opendxl -t a4
+# RUN: docker run --entrypoint cloudcmd -p <localhost_port>:8000 -v <local_machine_folder>:/opendxl -t <image_name>
+#      example: docker run --entrypoint cloudcmd -p 8888:8000 -v /c/docker/opendxl:/opendxl -t a4
 # with this, you are also able write your code in the mounted local drive, and then run it in the docker container
 # you can also connect using url: http://localhost:<localhost_port>. For the above example, it would be: http://localhost:8888
 
@@ -30,7 +30,6 @@ RUN npm i gritty
 
 # copy files
 COPY files/edit.json /usr/lib/node_modules/cloudcmd/node_modules/edward/json/
-COPY dxlenvironment /dxlenvironment
 
 # set environment variables
 ENV cloudcmd_contact false
@@ -41,9 +40,5 @@ ENV cloudcmd_terminal_path gritty
 
 # expose port for external connections
 EXPOSE 8000
-
-# startup script
-ENTRYPOINT ["/dxlenvironment/startup.sh"]
-
 
 
