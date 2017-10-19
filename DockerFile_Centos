@@ -41,4 +41,5 @@ ENV cloudcmd_terminal_path gritty
 # expose port for external connections
 EXPOSE 8000
 
-
+# startup script
+#ENTRYPOINT ["/dxlenvironment/startup_centos.sh"]
