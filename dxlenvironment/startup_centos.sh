@@ -1,0 +1,2 @@
+# launch cloud commander
+cloudcmd
